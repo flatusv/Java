@@ -1,0 +1,101 @@
+@startuml
+
+title __Übung 3: UML__\n
+
+  package  {
+    abstract class Airplane {
+        - manufacturer : String
+        - maxSpeed : int
+        - wingsCount : int
+        - minRunwayLength : int
+        - minRunwayWidth : int
+        + Airplane()
+        + getManufacturer()
+        + setManufacturer()
+        + getMaxSpeed()
+        + setMaxSpeed()
+        + getWingsCount()
+        + setWingsCount()
+        + getLooping()
+        + setRunway()
+        + getMinRunwayLength()
+        + getMinRunwayWidth()
+        + landingCheck()
+    }
+  }
+  
+
+  package  {
+    class AirplaneTestDrive {
+        {static} + main()
+    }
+  }
+  
+
+  package  {
+    class DoubleDecker {
+        {static} + LOOPINGSPEED : int
+        - openCockpit : boolean
+        + DoubleDecker()
+        + DoubleDecker()
+        + getOpenCockpit()
+        + getWingsCount()
+        + getLooping()
+        ~ calcArrivalTime()
+        + toString()
+    }
+  }
+  
+
+  package  {
+    abstract class FlyingBody {
+        ~ manufacturer : String
+        ~ maxSpeed : int
+        {abstract} ~ calcArrivalTime()
+    }
+  }
+  
+
+  package  {
+    interface Landable {
+        {abstract} + landingCheck()
+    }
+  }
+  
+
+  package  {
+    class Runway {
+        + length : int
+        + width : int
+        + Runway()
+    }
+  }
+  
+
+  package  {
+    class TransportAircraft {
+        - passengerCount : int
+        - cruiseSpeed : int
+        - airline : String
+        + TransportAircraft()
+        + getAirline()
+        + setAirline()
+        + getCruiseSpeed()
+        + setCruiseSpeed()
+        + getPassengerCount()
+        + setPassengerCount()
+        ~ calcArrivalTime()
+        ~ calcArrivalTime()
+        + toString()
+    }
+  }
+  
+
+  Airplane -up-|> Landable
+  Airplane -up-|> FlyingBody
+  DoubleDecker -up-|> Airplane
+  TransportAircraft -up-|> Airplane
+
+
+
+@enduml
