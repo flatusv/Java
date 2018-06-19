@@ -1,8 +1,10 @@
 package animal;
 
+import java.lang.Iterable;
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class Cage<E>{
+public class Cage<E> implements Iterable<E> {
 
     private Object[] animals;
     private int size;
@@ -15,6 +17,8 @@ public class Cage<E>{
     public void setAnimal(E a) {
         if (size == animals.length)
             animals = Arrays.copyOf(animals, animals.length + 20);
+
+        animals[size++] = a;
     }
 
 
@@ -41,6 +45,9 @@ public class Cage<E>{
         return animals;
     }
 
+    public Iterator<E> iterator() {
+        return new CageIterator<E>(this);
+    }
 
 }
 

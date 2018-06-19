@@ -1,13 +1,12 @@
-package animal;
-
+package ringbuffer;
 import java.util.Iterator;
+public class RingBufferSimpleIterator<T> implements Iterator<T> {
 
-public class CageIterator<E> implements Iterator<E>{
 
-    private Cage<E> list;
+    private RingBufferSimple<T> list;
     private int current = 0; // current position
 
-    public CageIterator(Cage<E> list) {
+    public RingBufferSimpleIterator(RingBufferSimple<T> list) {
         this.list = list;
     }
 
@@ -17,15 +16,11 @@ public class CageIterator<E> implements Iterator<E>{
     }
 
     @Override
-    public E next(){
+    public T next(){
         if(hasNext()){
             return list.get(current++); // return the next element that is in
         }else {                         // in the the object Cage
             return null;                // null if we reach the end
         }
     }
-
-
-
-
 }
