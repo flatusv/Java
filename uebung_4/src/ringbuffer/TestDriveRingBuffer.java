@@ -11,12 +11,13 @@ public class TestDriveRingBuffer {
         buffer.add(77);
         buffer.add(1000);
         buffer.add(-76);
+        buffer.add(10);
 
         for (Integer wert : buffer) {
             System.out.println("Wert: " + wert);
         }
 
 
-
     }
+
 }

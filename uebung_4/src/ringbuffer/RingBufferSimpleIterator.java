@@ -18,9 +18,9 @@ public class RingBufferSimpleIterator<T> implements Iterator<T> {
     @Override
     public T next(){
         if(hasNext()){
-            return list.get(current++); // return the next element that is in
-        }else {                         // in the the object Cage
-            return null;                // null if we reach the end
+            return list.get(current++);
+        }else {
+            return null;
         }
     }
 }
